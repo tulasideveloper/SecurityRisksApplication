@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class='container text-center'>
+    {% for p in object_list %}
+        <div class='row'>                       
+            <div class='col-2 rounded border border-dark w-150 p-3 bg-secondary'>
+                <a href="{% url 'Load_ViewRiskAspect' p.id %}"> 
+                    <div class='text-center'>
+                        <p style='color:white;'>{{ p.RiskAspect_Name }}</p>
+                    </div>
+               </a>      
+            </div>      
+            <div class='col-10 border border-dark h-85 d-center' style='width: 120px; background-color: rgba(0,0,255,.1)'>
+                <p>{{ p.RiskAspect_Description }}</p>
+            </div>                        
+        </div>        
+    {% endfor %}  
+
+    <div class='pagination'>
+        <span class='step-links'>
+            {% if object_list.has_previous %}
+            <a href="?{{ page_request_var }}={{ object_list.previou_page_number }}{% if request.GET.q %}&q={{ reuqest.GET.q }}{% endif %}">previous</a>
+            {% endif %}
+            <span class='current'>
+                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+            </span>
+            {% if object_list.has_next %}
+                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&1={{ request.GET.q }}{% endif %}">next</a>            
+            {% endif %}
+        </span>
+    </div>
+
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block body %}
+    <p>{{ objViewRiskAspect.RiskAspect_Name }}</p>
+    <p>{{ objViewRiskAspect.RiskAspect_Description }} </p>
+    <a href="{% url 'Load_EditRiskAspect' objViewRiskAspect.id %}"><button class='btn btn-secondary' type='edit'>Edit</button></a>
+    
+{% endblock %}

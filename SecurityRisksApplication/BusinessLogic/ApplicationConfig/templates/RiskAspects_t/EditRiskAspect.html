@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<form method='post'>
+    {% csrf_token %}
+    {{ form_SecurityRiskAspects_Edit.RiskAspect_Name|as_crispy_field }}
+    {{ form_SecurityRiskAspects_Edit.RiskAspect_Description|as_crispy_field }}
+    <button type="submit" class = "btn btn-primary" role="button">Save</button>
+</form>
+{% endblock %}

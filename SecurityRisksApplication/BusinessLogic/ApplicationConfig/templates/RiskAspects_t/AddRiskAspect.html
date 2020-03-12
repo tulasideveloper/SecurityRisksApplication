@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<form method='post'>
+    {% csrf_token %}
+    {{ AddRiskAspect.RiskAspect_Name|as_crispy_field }}
+    {{ AddRiskAspect.RiskAspect_Description|as_crispy_field }}
+    <button type="submit" class = "btn btn-primary" role="button">Add</button>
+</form>
+{% endblock %}
